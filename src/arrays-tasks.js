@@ -185,7 +185,7 @@ function insertItem(arr, item, index) {
  *    getHead([ 'a', 'b', 'c', 'd'], 0) => []
  */
 function getHead(arr, n) {
-  return arr.splice(0, n);
+  return arr.slice(0, n);
 }
 
 /**
@@ -200,7 +200,7 @@ function getHead(arr, n) {
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
 function getTail(arr, n) {
-  return arr.splice(arr.length - n);
+  return arr.slice(arr.length - n);
 }
 
 /**
@@ -217,7 +217,8 @@ function getTail(arr, n) {
  */
 function doubleArray(arr) {
   const arr2 = arr.slice(0);
-  return [...arr, ...arr2];
+  const result = arr2.concat(arr);
+  return result;
 }
 
 /**
@@ -299,7 +300,7 @@ function flattenArray(/* nestedArray */) {
  *   selectMany(['one','two','three'], (x) => x.split('')) =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-  return arr.flat(childrenSelector);
+  return arr.flatMap(childrenSelector);
 }
 
 /**
