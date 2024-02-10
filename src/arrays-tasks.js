@@ -198,8 +198,21 @@ function isSameLength(arr) {
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex(/* arr */) {
-  throw new Error('Not implemented');
+function isValueEqualsIndex(arr) {
+  const result = arr.map((item, index) => {
+    if (item === index) {
+      return true;
+    }
+    return false;
+  });
+  if (
+    result.some((item) => {
+      return item === true;
+    })
+  ) {
+    return true;
+  }
+  return false;
 }
 
 /**
